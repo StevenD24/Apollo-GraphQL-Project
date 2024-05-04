@@ -7,6 +7,10 @@ export const resolvers: Resolvers = {
     tracksForHome: (_: any, __: any, { dataSources }) => {
       return dataSources.trackAPI.getTracksForHome();
     },
+    // get a single track by ID, for the track page
+    track: (_: any, { id }, { dataSources }) => {
+      return dataSources.trackAPI.getTrack(id);
+    },
   },
   // resolvers object called Track, indicating that it's for the Track
   // object in our schema.
@@ -14,6 +18,9 @@ export const resolvers: Resolvers = {
     // author is the attribute our resolver will populate in our schema
     author: ({ authorId }, _: any, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
+    },
+    modules: ({ id }, _: any, { dataSources }) => {
+      return dataSources.trackAPI.getTrackModules(id);
     },
   },
 };
