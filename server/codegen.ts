@@ -13,6 +13,7 @@ const config: CodegenConfig = {
                 mappers: {
                     Track: "./models#TrackModel",
                     Author: "./models#AuthorModel",
+                    Module: "./models#ModuleModel",
                 },
             },
         },

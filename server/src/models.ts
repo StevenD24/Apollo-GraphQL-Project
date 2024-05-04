@@ -6,6 +6,8 @@ export type TrackModel = {
   thumbnail: string;
   length: number;
   modulesCount: number;
+  description: string;
+  numberOfViews: number;
 };
 
 // define author model to match actual db schema
@@ -14,3 +16,10 @@ export type AuthorModel = {
   name: string;
   photo: string;
 };
+
+// define the module model to match the db schema
+export type ModuleModel = {
+    id: string;
+    title: string;
+    length: number;
+}
