@@ -12,6 +12,29 @@ export const resolvers: Resolvers = {
       return dataSources.trackAPI.getTrack(id);
     },
   },
+
+  Mutation: {
+    incrementTrackViews: async (_: any, { id }, { dataSources }) => {
+      try {
+        const track = await dataSources.trackAPI.incrementTrackViews(id);
+
+        return {
+          code: 200,
+          success: true,
+          message: `Successfully incremented number of views for track ${id}`,
+          track: track,
+        }
+      } catch (err) {
+        return {
+          code: err.extensions.response.status,
+          success: false,
+          message: err.extensions.response.body,
+          track: null
+        }
+      }
+    }
+  },
+
   // resolvers object called Track, indicating that it's for the Track
   // object in our schema.
   Track: {
